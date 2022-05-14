@@ -1,0 +1,72 @@
+{% extends "rates/layout.html" %}
+
+{% block body %}
+  <h1>Movies Ranking</h1>
+    <h3><a href="../rates">Rates</a> </h3><h3><a href="../API">API</a> </h3>
+    <h3><a href="{% url 'logout' %}">Log Out</a></h3>
+    <p>Movies count: {{ movies_count }}</p>
+    <h2>{{ year }}</h2>
+
+  <form action="{% url 'movies_ranking' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Enter" name="form_year">
+  </form>
+    <hr/>
+
+<h3>Create/Update Ranking Best of:</h3>
+<table>
+    <tr>
+        <th>
+           <form action="{% url 'movies_ranking' %}" method="post" id="form_ranking">
+            {% csrf_token %}
+            {{ form_best_year }}
+           </form>
+        </th>
+    </tr>
+</table>
+<button type="submit" form="form_ranking" value="Submit" name="form_best_ranking">Submit Ranking</button>
+{{ last_update }}
+<h3>Create/Update Ranking Worst of:</h3>
+<table>
+    <tr>
+        <th>
+           <form action="{% url 'movies_ranking' %}" method="post" id="form_worst_ranking">
+            {% csrf_token %}
+            {{ form_worst_year }}
+           </form>
+        </th>
+    </tr>
+</table>
+<button type="submit" form="form_worst_ranking" value="Submit" name="form_worst_ranking">Submit Ranking</button>
+{{ last_update }}
+<br/>
+<hr/>
+
+  <h2>Ranking {{ year }}:</h2>
+  <h3>Top 10 Best:</h3>
+    <ul>
+        {% for movie in ranking_best_movies %}
+        <li><a href="{{ movie.filme.id }}">{{ movie.position }}: {{ movie.filme.filme }}, {{ movie.filme.nota }}</a></li>
+        {% endfor %}
+    </ul>
+
+  <h3>Top 10 Worst:</h3>
+    <ul>
+        {% for movie in ranking_worst_movies %}
+        <li><a href="{{ movie.filme.id }}">{{ movie.position }}: {{ movie.filme.filme }}, {{ movie.filme.nota }}</a></li>
+        {% endfor %}
+    </ul>
+
+  <h3>By month:</h3>
+  <ul>
+    {% for month, query in movies.items %}
+    <li>Month {{ month }}:</li>
+    <ul>
+      {% for movie in query %}
+        <li><a href="{{ movie.id }}">{{ movie.filme }}, nota: {{ movie.nota }}, data: {{ movie.data }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </ul>
+{% endblock %}

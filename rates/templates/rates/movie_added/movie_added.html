@@ -1,0 +1,11 @@
+{% extends "rates/layout.html" %}
+
+{% block body %}
+  <h1>Movie Added</h1>
+  <ul>
+    <li>Rate: {{ rate }}</li>
+    <li>Date: {{ date }}</li>
+  </ul>
+  <br>
+  <a href="{% url 'index' %}">Return to main page</a>
+{% endblock %}

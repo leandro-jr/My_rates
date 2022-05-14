@@ -1,0 +1,10 @@
+{% extends "rates/layout.html" %}
+
+{% block body %}
+  <h1>Choose the movie to be added:</h1>
+  <ul>
+    {% for movie in possible_movies.results %}
+    <li><a href="{{ movie.id }}"><img src="{{ movie.image }}" width="300"> {{ movie.id }} {{ movie.title }} {{ movie.description }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

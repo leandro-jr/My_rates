@@ -1,0 +1,16 @@
+{% extends "rates/layout.html" %}
+
+{% block body %}
+  <h1>Movie Details: {{ movie_rate.filme }}</h1>
+  <img src="{{ movie_data.image }}" width="300">
+  <ul>
+    <li>Movie id: {{ movie_rate.id }}</li>
+    <li>Data que foi visto: {{ movie_rate.data }}</li>
+    <li>Nota: {{ movie_rate.nota }}</li>
+    <li>Release: {{ movie_data.year }}</li>
+    <li>Runtime{{ movie_data.runtime }} min</li>
+    <li>Directed by: {{ movie_data.directors }}</li>
+    <li>Main cast: {{ movie_data.stars }}</li>
+    <li>Plot: {{ movie_data.plot }}</li>
+  </ul>
+{% endblock %}

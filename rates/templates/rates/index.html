@@ -1,0 +1,25 @@
+{% extends "rates/layout.html" %}
+
+{% block body %}
+  <h1>Movies</h1>
+  <h3><a href="../ranking">Ranking</a></h3>
+  <h3><a href="../API">API</a></h3>
+  <h3><a href="{% url 'logout' %}">Log Out</a></h3>
+  <h2>Search movie</h2>
+  <form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form_search_movie }}
+    <input type="submit" value="Search">
+  </form>
+  <h2>Add new movie</h2>
+  <form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Search">
+  </form>
+  <ul>
+    {% for movie in movies %}
+    <li><a href="{{ movie.id }}">{{ movie.id }}: {{ movie.filme }}, nota: {{ movie.nota }}, data: {{ movie.data }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
