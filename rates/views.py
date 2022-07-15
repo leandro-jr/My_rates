@@ -140,7 +140,7 @@ def movie_added(request):
 def save_in_ranking(kind_of_rank, year, form):
     """
     From the form it is extracted the movie id of the 10 best/worst movies. This will be used to find the movie in
-    MoviesRate table. With the movie found, it is added/upadted on MoviesRatesRanking/MoviesRatesWorstRanking
+    MoviesRate table. With the movie found, it is added/updated on MoviesRatesRanking/MoviesRatesWorstRanking
     :param kind_of_rank: str 'best' if is best movies rank and 'worst' to worst movies rank
     :param year: str with year to be used on the rank
     :param form: form_best_year or form_worst_year info provided by the forms

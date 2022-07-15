@@ -1,12 +1,28 @@
-{% extends "rates/layout.html" %}
+{% extends "rates/layout_api.html" %}
 
 {% block body %}
-  <h1>API</h1>
-  <h3><a href="../ranking">Ranking</a> </h3><h3><a href="../rates">Rates</a> </h3>
-  <h2>Usage:</h2>
-  <ul>
-    <li>Complete list of movies: "127.0.0.1:8000/API/movies/" E.g.:<a href=http://127.0.0.1:8000/API/movies/> 127.0.0.1:8000/API/movies/</a></li>
-    <li>Details of specific movie: "127.0.0.1:8000/API/movies/movie_id" E.g.:<a href="http://127.0.0.1:8000/API/movies/1024"> 127.0.0.1:8000/API/movies/1024</a></li>
-    <li>Search for a movie title: "127.0.0.1:8000/API/movies/title" E.g.: <a href="http://127.0.0.1:8000/API/movies/inception/">127.0.0.1:8000/API/movies/inception/</a></li>
-  </ul>
+  <div class="grid-container">
+    <header>
+      <h1>API</h1>
+    </header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../rates">Rates</a></li>
+        <li><a href="../ranking">Ranking</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Usage:</h2>
+      <ul>
+        <li>Complete list of movies: "127.0.0.1:8000/API/movies/" E.g.:<a href=http://127.0.0.1:8000/API/movies/> 127.0.0.1:8000/API/movies/</a></li>
+        <li>Details of specific movie: "127.0.0.1:8000/API/movies/movie_id" E.g.:<a href="http://127.0.0.1:8000/API/movies/1024"> 127.0.0.1:8000/API/movies/1024</a></li>
+        <li>Search for a movie title: "127.0.0.1:8000/API/movies/title" E.g.: <a href="http://127.0.0.1:8000/API/movies/inception/">127.0.0.1:8000/API/movies/inception/</a></li>
+      </ul>
+    </main>
+
+    <footer>
+        <address>Desenvolvido por Leandro Almeida - leandro.jr@outlook.com</address>
+    </footer>
+
+  </div>
 {% endblock %}

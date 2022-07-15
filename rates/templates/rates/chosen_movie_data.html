@@ -1,19 +1,35 @@
-{% extends "rates/layout.html" %}
+{% extends "rates/layout_chosen_movie_data.html" %}
 
 {% block body %}
-  <h1>Movie Data:</h1>
-  <ul>
-    <li><img src="{{ movie_data.image }}" width="300"></li>
-    <li>Title: {{ movie_data.title }}</li>
-    <li>Release: {{ movie_data.year }}</li>
-    <li>Runtime: {{ movie_data.runtime }} min</li>
-    <li>Plot: {{ movie_data.plot }}</li>
-    <li>Directed by: {{ movie_data.directors }}</li>
-    <li>Main cast: {{ movie_data.stars }}</li>
-  </ul>
-  <form action="{% url 'movie_added' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Add">
-  </form>
+   <div class="grid-container">
+    <header>
+      <h1>Rate the Movie</h1>
+    </header>
+
+    <section id="image">
+        <img src="{{ movie_data.image }}">
+    </section>
+
+    <section id="data">
+        <ul>
+            <li>Title: {{ movie_data.title }}</li>
+            <li>Release: {{ movie_data.year }}</li>
+            <li>Runtime: {{ movie_data.runtime }} min</li>
+            <li>Plot: {{ movie_data.plot }}</li>
+            <li>Directed by: {{ movie_data.directors }}</li>
+            <li>Main cast: {{ movie_data.stars }}</li>
+        </ul>
+    </section>
+
+    <form action="{% url 'movie_added' %}" method="post">
+      {% csrf_token %}
+      {{ form }}
+    <input class="button" type="submit" value="Add">
+    </form>
+
+     <footer>
+        <address>Desenvolvido por Leandro Almeida - leandro.jr@outlook.com</address>
+     </footer>
+
+  </div>
 {% endblock %}

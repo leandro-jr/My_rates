@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    font-family: 'Nunito', 'Verdana';
+    color: #222;
+    height: 100%;
+    width: 100%;
+}
+
+.grid-container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.grid-container header{
+    flex: 0 1 auto;
+}
+
+header {
+    font-family: 'Righteous', 'Nunito', 'Roboto', 'Verdana';
+    font-size: 1.5rem;
+    background-color: #FF6067;
+    padding: 30px 0 30px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+}
+
+.grid-container nav{
+    flex: 0 1 auto;
+}
+
+nav {
+    font-family: 'Righteous', 'Nunito', 'Roboto', 'Verdana';
+    background-color: #F7EE1A;
+    color: #1A577F;
+    min-width: 100%;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    line-height: 1.15;
+    list-style-type: none;
+}
+
+nav li{
+    padding: 10px 10px 10px 10px;
+}
+
+nav a{
+    padding: 10px 10px 10px 10px;
+}
+
+nav a:hover {
+  color: black;
+  background-color: #1ECBE1;
+}
+
+
+a:link {
+  text-decoration: none;
+  color: #1A577F;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #1A577F;
+}
+
+a:hover {
+  color: black;
+  background-color: #b1dbf0;
+}
+
+.grid-container main{
+    flex: 1 1 auto;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #D7F7FE;
+    min-width: 100%;
+}
+
+main h2 {
+    padding: 10px;
+}
+
+main li{
+    list-style-type: none;
+}
+
+.grid-container footer{
+    flex: 0 1 auto;
+}
+
+footer {
+    background-color: #FF6067;
+    padding: 10px 0 10px 0;
+    margin: auto;
+    color: white;
+    min-width: 100%;
+    font-size: 0.7rem;
+}
+
+footer address {
+    padding-left: 10px;
+}

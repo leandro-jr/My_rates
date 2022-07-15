@@ -1,25 +1,49 @@
 {% extends "rates/layout.html" %}
+{% load static %}
 
 {% block body %}
-  <h1>Movies</h1>
-  <h3><a href="../ranking">Ranking</a></h3>
-  <h3><a href="../API">API</a></h3>
-  <h3><a href="{% url 'logout' %}">Log Out</a></h3>
-  <h2>Search movie</h2>
-  <form action="{% url 'index' %}" method="post">
-    {% csrf_token %}
-    {{ form_search_movie }}
-    <input type="submit" value="Search">
-  </form>
-  <h2>Add new movie</h2>
-  <form action="{% url 'index' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Search">
-  </form>
-  <ul>
-    {% for movie in movies %}
-    <li><a href="{{ movie.id }}">{{ movie.id }}: {{ movie.filme }}, nota: {{ movie.nota }}, data: {{ movie.data }}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="grid-container">
+    <header>
+      <h1>Movies Rates</h1>
+    </header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../ranking">Ranking</a></li>
+        <li><a href="../API">API</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+      </ul>
+    </nav>
+
+
+    <section class="search">
+    <div id="search_movie">
+      <h2>Search for Movie</h2>
+      <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        {{ form_search_movie }}
+        <input class="button" type="submit" value="Search">
+      </form>
+    </div>
+
+    <div id="add_movie">
+      <h2>Search to Add New Movie</h2>
+      <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input class="button" type="submit" value="Search">
+      </form>
+    </div>
+    </section>
+
+    <main>
+      <ul>
+        {% for movie in movies %}
+        <li><a href="{{ movie.id }}">{{ movie.id }}: {{ movie.filme }}, nota: {{ movie.nota }}, data: {{ movie.data }}</a></li>
+        {% endfor %}
+      </ul>
+    </main>
+    <footer>
+      <address>Desenvolvido por Leandro Almeida - leandro.jr@outlook.com</address>
+    </footer>
+  </div>
 {% endblock %}

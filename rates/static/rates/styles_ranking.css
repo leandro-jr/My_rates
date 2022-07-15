@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*transition: all .35s ease;*/
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    font-family: 'Nunito', 'Verdana';
+    color: #222;
+}
+
+.grid-container{
+    margin: 0 auto;
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    /*grid-template-columns: repeat(4, 1fr);*/
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header"
+                         "nav"
+                         "year"
+                         "update_ranking"
+                         "top"
+                         "by_month"
+                         "footer";
+    border-collapse: collapse;
+}
+
+header {
+    font-family: 'Righteous', 'Nunito', 'Roboto', 'Verdana';
+    font-size: 1.5rem;
+    grid-area: header;
+    background-color: #FF6067;
+    padding: 30px 0 30px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    font-family: 'Righteous', 'Nunito', 'Roboto', 'Verdana';
+    grid-area: nav;
+    background-color: #F7EE1A;
+    color: #1A577F;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    line-height: 1.15;
+    list-style-type: none;
+}
+
+nav li{
+    padding: 10px 10px 10px 10px;
+}
+
+nav a{
+    padding: 10px 10px 10px 10px;
+}
+
+nav a:hover {
+  color: black;
+  background-color: #1ECBE1;
+}
+
+.year {
+    grid-area: year;
+    background-color: #83c5be;
+    color: #1A577F;
+    padding: 10px 5px 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.update_ranking {
+    grid-area: update_ranking;
+    padding: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 30px;
+    background-color: #b1dbf0;
+}
+
+form{
+    font-size: 1rem;
+}
+
+table {
+    padding: 5px 0 5px 0;
+}
+
+.button {
+    font-size: 1rem;
+    background-color: #1A577F;
+    color: #f2f2f2;
+    padding: 2px 10px 2px 10px;
+    border: 1px solid #f2f2f2;
+    transition: .4s ease;
+    transition-property: background-color, color;
+    border-radius: 5px;
+}
+
+.button:hover{
+    background-color: #F7EE1A;
+    color: black;
+    border-color: #1A577F;
+}
+
+/*main {
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #D7F7FE;
+    padding-top: 10px;
+}*/
+
+#top{
+    grid-area: top;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "top_h2 top_h2"
+                         "top_best top_worst";
+    background-color: #D7F7FE;
+    padding-top: 10px;
+}
+
+#top h2 {
+    grid-area: top_h2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top_best {
+    grid-area: top_best;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#top_best ul, #top_worst ul{
+    list-style-type: none;
+}
+
+#top_worst {
+    grid-area: top_worst;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/*#by_month{
+    background-color: #D7F7FE;
+    padding-top: 10px;
+    grid-area: by_month;
+}*/
+
+#by_month{
+    grid-area: by_month;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "by_month_h3"
+                         "month";
+    background-color: #D7F7FE;
+    padding-top: 10px;
+}
+
+#by_month h3{
+    grid-area: by_month_h3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#month{
+    grid-area: month;
+}
+
+#month li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+#by_month ul {
+    list-style-type: none;
+}
+
+
+a:link {
+  text-decoration: none;
+  color: #1A577F;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #1A577F;
+}
+
+a:hover {
+  color: black;
+  background-color: #b1dbf0;
+}
+
+#movie_month{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+}
+
+#movie_month li {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #FF6067;
+    padding: 10px 0 10px 0;
+    margin: auto;
+    color: white;
+    min-width: 100%;
+    font-size: 0.7rem;
+}
+
+footer address {
+    padding-left: 10px;
+}

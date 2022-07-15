@@ -1,16 +1,38 @@
-{% extends "rates/layout.html" %}
+{% extends "rates/layout_details.html" %}
 
 {% block body %}
-  <h1>Movie Details: {{ movie_rate.filme }}</h1>
-  <img src="{{ movie_data.image }}" width="300">
-  <ul>
-    <li>Movie id: {{ movie_rate.id }}</li>
-    <li>Data que foi visto: {{ movie_rate.data }}</li>
-    <li>Nota: {{ movie_rate.nota }}</li>
-    <li>Release: {{ movie_data.year }}</li>
-    <li>Runtime{{ movie_data.runtime }} min</li>
-    <li>Directed by: {{ movie_data.directors }}</li>
-    <li>Main cast: {{ movie_data.stars }}</li>
-    <li>Plot: {{ movie_data.plot }}</li>
-  </ul>
+   <div class="grid-container">
+    <header>
+      <h1>Movie Details: {{ movie_rate.filme }}</h1>
+    </header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../rates">Rates</a></li>
+        <li><a href="../ranking">Ranking</a></li>
+        <li><a href="../API">API</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+      </ul>
+    </nav>
+
+     <section id="image">
+        <img src="{{ movie_data.image }}">
+     </section>
+     <section id="details">
+        <ul>
+          <li>Movie id: {{ movie_rate.id }}</li>
+          <li>Data que foi visto: {{ movie_rate.data }}</li>
+          <li>Nota: {{ movie_rate.nota }}</li>
+          <li>Release: {{ movie_data.year }}</li>
+          <li>Runtime: {{ movie_data.runtime }} min</li>
+          <li>Directed by: {{ movie_data.directors }}</li>
+          <li>Main cast: {{ movie_data.stars }}</li>
+          <li>Plot: {{ movie_data.plot }}</li>
+        </ul>
+     </section>
+
+   <footer>
+      <address>Desenvolvido por Leandro Almeida - leandro.jr@outlook.com</address>
+   </footer>
+
+  </div>
 {% endblock %}

@@ -123,5 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # key to access https://imdb-api.com
-IMDB_KEY = ""
+IMDB_KEY = "k_k9is2iw9"
 

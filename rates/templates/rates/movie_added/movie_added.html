@@ -1,11 +1,24 @@
-{% extends "rates/layout.html" %}
+{% extends "rates/movie_added/layout_movie_added.html" %}
 
 {% block body %}
-  <h1>Movie Added</h1>
-  <ul>
-    <li>Rate: {{ rate }}</li>
-    <li>Date: {{ date }}</li>
-  </ul>
-  <br>
-  <a href="{% url 'index' %}">Return to main page</a>
+   <div class="grid-container">
+    <header>
+      <h1>Movie Added!</h1>
+    </header>
+
+     <main>
+        <ul>
+          <li>Rate: {{ rate }}</li>
+          <li>Date: {{ date }}</li>
+        </ul>
+     </main>
+
+     <nav>
+        <a href="{% url 'index' %}">Return to main page</a>
+     </nav>
+
+    <footer>
+      <address>Desenvolvido por Leandro Almeida - leandro.jr@outlook.com</address>
+    </footer>
+    </div>
 {% endblock %}

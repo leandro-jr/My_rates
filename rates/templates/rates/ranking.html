@@ -1,72 +1,99 @@
-{% extends "rates/layout.html" %}
+{% extends "rates/layout_ranking.html" %}
 
 {% block body %}
-  <h1>Movies Ranking</h1>
-    <h3><a href="../rates">Rates</a> </h3><h3><a href="../API">API</a> </h3>
-    <h3><a href="{% url 'logout' %}">Log Out</a></h3>
-    <p>Movies count: {{ movies_count }}</p>
-    <h2>{{ year }}</h2>
+    <div class="grid-container">
+        <header>
+            <h1>Movies Ranking</h1>
+        </header>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../rates">Rates</a></li>
+            <li><a href="../API">API</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+          </ul>
+        </nav>
 
-  <form action="{% url 'movies_ranking' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Enter" name="form_year">
-  </form>
-    <hr/>
+        <section class="year">
+            <h2>{{ year }}</h2>
+            <p>Movies count: {{ movies_count }}</p>
+              <form action="{% url 'movies_ranking' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input class="button" type="submit" value="Enter" name="form_year">
+              </form>
+        </section>
 
-<h3>Create/Update Ranking Best of:</h3>
-<table>
-    <tr>
-        <th>
-           <form action="{% url 'movies_ranking' %}" method="post" id="form_ranking">
-            {% csrf_token %}
-            {{ form_best_year }}
-           </form>
-        </th>
-    </tr>
-</table>
-<button type="submit" form="form_ranking" value="Submit" name="form_best_ranking">Submit Ranking</button>
-{{ last_update }}
-<h3>Create/Update Ranking Worst of:</h3>
-<table>
-    <tr>
-        <th>
-           <form action="{% url 'movies_ranking' %}" method="post" id="form_worst_ranking">
-            {% csrf_token %}
-            {{ form_worst_year }}
-           </form>
-        </th>
-    </tr>
-</table>
-<button type="submit" form="form_worst_ranking" value="Submit" name="form_worst_ranking">Submit Ranking</button>
-{{ last_update }}
-<br/>
-<hr/>
+         <section class="update_ranking">
+             <section id="update_best">
+                <h3>Create/Update Ranking Best of:</h3>
+                <table>
+                    <tr>
+                        <th>
+                           <form action="{% url 'movies_ranking' %}" method="post" id="form_ranking">
+                            {% csrf_token %}
+                            {{ form_best_year }}
+                           </form>
+                        </th>
+                    </tr>
+                </table>
+                <button class="button" type="submit" form="form_ranking" value="Submit" name="form_best_ranking">Submit Ranking</button>
+                {{ last_update }}
+             </section>
+             <section id="update_worst">
+                <h3>Create/Update Ranking Worst of:</h3>
+                <table>
+                    <tr>
+                        <th>
+                           <form action="{% url 'movies_ranking' %}" method="post" id="form_worst_ranking">
+                            {% csrf_token %}
+                            {{ form_worst_year }}
+                           </form>
+                        </th>
+                    </tr>
+                </table>
+                <button class="button" type="submit" form="form_worst_ranking" value="Submit" name="form_worst_ranking">Submit Ranking</button>
+                {{ last_update }}
+            </section>
+         </section>
 
-  <h2>Ranking {{ year }}:</h2>
-  <h3>Top 10 Best:</h3>
-    <ul>
-        {% for movie in ranking_best_movies %}
-        <li><a href="{{ movie.filme.id }}">{{ movie.position }}: {{ movie.filme.filme }}, {{ movie.filme.nota }}</a></li>
-        {% endfor %}
-    </ul>
 
-  <h3>Top 10 Worst:</h3>
-    <ul>
-        {% for movie in ranking_worst_movies %}
-        <li><a href="{{ movie.filme.id }}">{{ movie.position }}: {{ movie.filme.filme }}, {{ movie.filme.nota }}</a></li>
-        {% endfor %}
-    </ul>
+         <section id="top">
+          <h2>Ranking {{ year }}:</h2>
+             <section id="top_best">
+              <h3>Top 10 Best:</h3>
+                <ul>
+                    {% for movie in ranking_best_movies %}
+                    <li><a href="{{ movie.filme.id }}">{{ movie.position }}: {{ movie.filme.filme }}, {{ movie.filme.nota }}</a></li>
+                    {% endfor %}
+                </ul>
+             </section>
 
-  <h3>By month:</h3>
-  <ul>
-    {% for month, query in movies.items %}
-    <li>Month {{ month }}:</li>
-    <ul>
-      {% for movie in query %}
-        <li><a href="{{ movie.id }}">{{ movie.filme }}, nota: {{ movie.nota }}, data: {{ movie.data }}</a></li>
-      {% endfor %}
-    </ul>
-    {% endfor %}
-  </ul>
+             <section id="top_worst">
+              <h3>Top 10 Worst:</h3>
+                <ul>
+                    {% for movie in ranking_worst_movies %}
+                    <li><a href="{{ movie.filme.id }}">{{ movie.position }}: {{ movie.filme.filme }}, {{ movie.filme.nota }}</a></li>
+                    {% endfor %}
+                </ul>
+             </section>
+         </section>
+
+        <section id="by_month">
+          <h3>By Month:</h3>
+              <ul id="month">
+                {% for month, query in movies.items %}
+                <li><h4>Month {{ month }}:</h4></li>
+                <ul id="movie_month">
+                  {% for movie in query %}
+                    <li><a href="{{ movie.id }}">{{ movie.filme }}, nota: {{ movie.nota }}, data: {{ movie.data }}</a></li>
+                  {% endfor %}
+                </ul>
+                {% endfor %}
+              </ul>
+         </section>
+
+         <footer>
+            <address>Desenvolvido por Leandro Almeida - leandro.jr@outlook.com</address>
+         </footer>
+    </div>
 {% endblock %}
